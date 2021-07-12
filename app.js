@@ -75,19 +75,19 @@ startBtn.onclick = () => {
         // Create chunk array
         let chunks = []
         // Start the timer
-        timeInterval = setInterval(updateTimer, 120000);
         // Stop the timer after 2 mins
         setTimeout(() => {
-            // mediaStreamObj.stop()
-            stopStreamedVideo(inputVideo)
-            mediaRecorder.stop()
-            clearInterval(timeInterval)
-            return;
+          // mediaStreamObj.stop()
+          stopStreamedVideo(inputVideo)
+          mediaRecorder.stop()
+          clearInterval(timeInterval)
+          return;
         }, 120000);
         // Playback user video and start recording
         inputVideo.onloadedmetadata = (evt) => {
-            inputVideo.play()
-            mediaRecorder.start()
+          inputVideo.play()
+          mediaRecorder.start()
+          timeInterval = setInterval(updateTimer, 120000);
         }
 
         // Buffer the video data on to an array
