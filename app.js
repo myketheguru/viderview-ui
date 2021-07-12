@@ -83,7 +83,7 @@ startBtn.onclick = () => {
             mediaRecorder.stop()
             clearInterval(timeInterval)
             return;
-        }, 10000);
+        }, 120000);
         // Playback user video and start recording
         inputVideo.onloadedmetadata = (evt) => {
             inputVideo.play()
