@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.box {
+  transition: 0.8s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  box-shadow: 2px 2px 18px #dfe5ee;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  color: #12265e;
+  transform: rotate(-90deg) translate(-100%, -50%);
+  opacity: 0;
+}
+
+.box.in {
+  transform: rotate(0deg) translate(-50%, -50%);
+  opacity: 1;
+}
+
+.box.in-right {
+  transform: rotate(90deg) translate(100%, -50%);
+  opacity: 0;
+}
+
+.box .wave-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.box .wave-icon img {
+  width: 100%;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.box .wave-icon img:hover {
+  opacity: 1;
+}
+
+.box h1 {
+  margin-top: 30px 0px 10px;
+  padding: 10px 0px;
+}
+
+.box p {
+  color: #a9b3c5;
+  font-size: 12px;
+}
+
+form input#email {
+  background-color: #f4f5fc;
+  margin: 10px 0;
+  width: 250px;
+  height: 60px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  display: block;
+  padding: 10px 25px;
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+form button {
+  background-color: #2e5fe3;
+  color: #fff;
+  width: 250px;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 10px;
+}
+
+form :is(button:hover, input:focus) {
+  box-shadow: 2px 2px 18px #a8b6cac0;
+  opacity: 1;
+}
+
+form label {
+  font-size: 12px;
+}
+
+.box.continue h1 {
+  font-weight: lighter;
+}
+
+.box.continue button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2e5fe3;
+  color: #fff;
+  width: 250px;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  margin: 10px;
+}
+
+.box.continue button span:first-child {
+  margin-right: 20px;
+}
+
+.box.continue button svg {
+  width: 24px;
+  margin-top: 5px;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  transition: 0.5s;
+}
+
+.modal.hide {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.modal.show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.vid-container {
+  background-color: #000;
+}
+
+.vid-container video {
+  width: 100%;
+  height: 100%;
+}

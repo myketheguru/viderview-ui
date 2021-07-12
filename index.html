@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./timer.css">
+</head>
+<body>
+
+    <div class="box intro in">
+        <div class="wave-icon">
+            <img src="./images/icons/waving-hand.svg" alt="Wave">
+        </div>
+        <h1>Hello there!</h1>
+        <form>
+            <p>Enter your email address to continue</p>
+            <input type="email" name="email" id="email" placeholder="Enter Email..." required>
+            <button>Verify</button>
+            <input type="checkbox" name="joe" id="check-as-joe">
+            <label for="joe">Skip this step as Mr. Joe 😉</label>
+        </form>
+    </div>
+
+    <div class="box continue in-right">
+        <p>Next, continue where you left off</p>
+        <h3>Question:</h3>
+        <h1>Why do you like bananas?</h1>
+        <button id="start">
+            <span>Start Recording</span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+            </span>
+        </button>
+        <p>You will be timed for 2mins tops</p>
+    </div>
+
+    <div class="modal hide">
+        <div class="vid-container">
+            <video id="inputVideo"></video>
+        </div>
+        <div class="info">
+            <div id="arena"></div>
+            <p class="msg-box">...</p>
+        </div>
+    </div>
+    
+    <script src="./app.js"></script>
+</body>
+</html>

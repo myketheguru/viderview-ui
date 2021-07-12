@@ -1,0 +1,62 @@
+#arena,
+.msg-box {
+  max-width: 100%;
+  width: 400px;
+}
+
+#arena {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 2px 2px 18px #ddd;
+  border-radius: 10px;
+}
+
+#arena > * {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+#arena > *:not(:last-child) {
+  border-right: 1px dashed #ccc;
+}
+
+#arena > * h1 {
+  text-shadow: none;
+}
+
+#arena > * span {
+  font-size: 14px;
+}
+
+#arena .done {
+  color: #888;
+}
+
+#arena .done h1 {
+  text-shadow: none;
+}
+
+.msg-box {
+  width: 80%;
+  margin: 20px auto;
+  padding: 5px;
+  background-color: #999;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.pulsate {
+  animation: pulse 1s;
+}
