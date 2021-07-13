@@ -152,6 +152,17 @@ form label {
   transition: 0.5s;
 }
 
+@media screen and (max-width: 900px) {
+  .modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.7fr 0.3fr;
+  }
+
+  div#arena {
+    width: 100%;
+  }
+}
+
 .modal.hide {
   transform: scale(0);
   opacity: 0;

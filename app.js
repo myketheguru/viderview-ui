@@ -20,6 +20,7 @@ const handleVerify = (evt) => {
     }, 3400);
 }
 
+
 form.addEventListener('submit', handleVerify)
 checkAsJoe.addEventListener('change', handleVerify)
 
@@ -69,6 +70,7 @@ startBtn.onclick = () => {
         inputVideo.srcObject = mediaStreamObj
         else
         inputVideo.src = window.URL.createObjectURL(mediaStreamObj)
+        timeInterval = setInterval(updateTimer, 1000);
         
         // Create media Recorder
         let mediaRecorder = new MediaRecorder(mediaStreamObj)
@@ -87,7 +89,8 @@ startBtn.onclick = () => {
         inputVideo.onloadedmetadata = (evt) => {
           inputVideo.play()
           mediaRecorder.start()
-          timeInterval = setInterval(updateTimer, 120000);
+          
+          
         }
 
         // Buffer the video data on to an array
@@ -111,7 +114,8 @@ startBtn.onclick = () => {
   Create a function that will show the time output to HTML. It recieves a target HTML element, as well as an array of time metric objects as parameter.
 */
 
-function renderTimer (target, timeSnap) {
+function renderTimer (display, timeSnap) {
+       
     // Loop through the time metrics using .map() method
     const output = timeSnap.map(metric => {
       // Get state of the metric
@@ -138,8 +142,9 @@ function renderTimer (target, timeSnap) {
     }).join('');
     
     // Send the output to HTML
-    target.innerHTML = output;
+    display.innerHTML = output;
 }
+
 
 function updateTimer() {
     /* First, collect time metrics */
@@ -152,11 +157,18 @@ function updateTimer() {
     const minutes = Math.floor(time / 60);
     // Derive seconds metric
     const seconds = time % 60;
-    
+       /* Here we create an array of time metric objects using the values derived above */
+       const snapshot = [
+        // {val: days, label: 'day'}, 
+        // {val: hours, label: 'hour'},
+        {val: minutes, label: 'minute'}, 
+        {val: seconds, label: 'second'},
+      ];
+
     // Check if time has elapsed, so we can stop the countdown
     if (time <= 0) {
       // If so, stop the countdown
-      clearInterval(timeInterval, 1000);
+      // clearInterval(timeInterval, 1000);
       // Show a success message
       msgBox.innerHTML = 'Recording complete';
       // Give the message a background color
@@ -164,9 +176,9 @@ function updateTimer() {
       // Animate the message
       msgBox.classList.add('pulsate');
       // Remove the animation class after 1 second
-      setTimeout(function () {
-        msgBox.classList.remove('pulsate');
-      }, 1000);
+      // setTimeout(function () {
+      //   msgBox.classList.remove('pulsate');
+      // }, 1000);
     } else {
       /* If not, we still have time */
      
@@ -176,17 +188,10 @@ function updateTimer() {
       msgBox.style.backgroundColor = 'dodgerblue';
     }
     
-    /* Here we create an array of time metric objects using the values derived above */
-    const snapshot = [
-      {val: days, label: 'day'}, 
-      {val: hours, label: 'hour'},
-      {val: minutes, label: 'minute'}, 
-      {val: seconds, label: 'second'},
-    ];
+ 
     
     /* ...then we feed these values to the renderTimer function we created above. We also give it a target HTML element to use for it's purposes */
     renderTimer(display, snapshot);
-    
     // Finally, we update time by decrement
     time--;
   }
@@ -201,3 +206,4 @@ function updateTimer() {
   
     videoElem.srcObject = null;
   }
+  
